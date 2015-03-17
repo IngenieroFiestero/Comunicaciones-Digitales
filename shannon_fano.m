@@ -1,4 +1,4 @@
-function d = shannon-fano(m)
+function d = shannon_fano(m)
 if exist('m','var')
     %dimension de la matriz de 2
         if length(m) == 2
@@ -31,13 +31,13 @@ if exist('m','var')
             m1 = m(1:minimo);
             m2 = m(minimo+1:length(m));
             if length(m1) == 1
-                d2 = dividirMatriz(m2);
+                d2 = shannon_fano(m2);
                 for i=1:length(m) - 1
                     d{i + 1} = [d{i + 1} d2{i}];
                 end
             else
-                d1 = dividirMatriz(m1);
-                d2 = dividirMatriz(m2);
+                d1 = shannon_fano(m1);
+                d2 = shannon_fano(m2);
                 for i=1:length(m)
                     if i <= minimo
                         d{i} = [d{i} d1{i}];
